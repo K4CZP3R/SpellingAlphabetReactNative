@@ -1,0 +1,32 @@
+{
+    "language": "dutch",
+    "letters": [
+        {"character": "a", "spelledOut": "Anna"},
+        {"character": "b", "spelledOut": "Bernard"},
+        {"character": "c", "spelledOut": "Cornelis"},
+        {"character": "d", "spelledOut": "Dirk"},
+        {"character": "e", "spelledOut": "Eduard"},
+        {"character": "f", "spelledOut": "Ferdinand"},
+        {"character": "g", "spelledOut": "Gerard"},
+        {"character": "h", "spelledOut": "Hendrik"},
+        {"character": "i", "spelledOut": "Izak"},
+        {"character": "j", "spelledOut": "Jan"},
+        {"character": "k", "spelledOut": "Karel"},
+        {"character": "l", "spelledOut": "Lodewijk"},
+        {"character": "m", "spelledOut": "Maria"},
+        {"character": "n", "spelledOut": "Nico"},
+        {"character": "o", "spelledOut": "Otto"},
+        {"character": "p", "spelledOut": "Pieter"},
+        {"character": "q", "spelledOut": "Quotiënt"},
+        {"character": "r", "spelledOut": "Rudolf"},
+        {"character": "s", "spelledOut": "Simon"},
+        {"character": "t", "spelledOut": "Teunis"},
+        {"character": "u", "spelledOut": "Utrecht"},
+        {"character": "v", "spelledOut": "Victor"},
+        {"character": "w", "spelledOut": "Willem"},
+        {"character": "x", "spelledOut": "Xantippe"},
+        {"character": "ij", "spelledOut": "IJsbrand"},
+        {"character": "y", "spelledOut": "Ypsilon"},
+        {"character": "z", "spelledOut": "Zaandam"}
+    ]
+}

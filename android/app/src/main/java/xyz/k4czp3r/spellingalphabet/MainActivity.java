@@ -1,4 +1,4 @@
-package com.myapp2;
+package xyz.k4czp3r.spellingalphabet;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "MyApp2";
+    return "SpellingAlphabet";
   }
 }

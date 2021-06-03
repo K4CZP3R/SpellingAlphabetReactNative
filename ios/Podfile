@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'MyApp2' do
+target 'SpellingAlphabet' do
   config = use_native_modules!
 
   use_react_native!(
@@ -12,7 +12,7 @@ target 'MyApp2' do
     :hermes_enabled => false
   )
 
-  target 'MyApp2Tests' do
+  target 'SpellingAlphabetTests' do
     inherit! :complete
     # Pods for testing
   end

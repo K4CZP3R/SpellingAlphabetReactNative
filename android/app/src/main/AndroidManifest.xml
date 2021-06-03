@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.myapp2">
+  package="xyz.k4czp3r.spellingalphabet">
 
     <uses-permission android:name="android.permission.INTERNET" />
 

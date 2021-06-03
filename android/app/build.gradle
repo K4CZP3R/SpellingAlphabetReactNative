@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.myapp2"
+        applicationId "xyz.k4czp3r.spellingalphabet"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

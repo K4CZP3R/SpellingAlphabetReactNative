@@ -9,52 +9,84 @@
  */
 
 
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import {
-  Alert,
-  FlatList,
-  Platform,
+  AppState,
   SafeAreaView,
-  StatusBar,
   StyleSheet,
   Text,
   TextInput,
-  useColorScheme,
   View,
 } from 'react-native';
-import { Input } from 'react-native-elements';
+import { ThemeProvider } from 'react-native-elements';
+import { Picker } from '@react-native-picker/picker';
 
 
-import {
-  Colors, Header,
-} from 'react-native/Libraries/NewAppScreen';
-import TopBar from './components/TopBar';
 import { SaCollection } from './models/saCollection';
 import { SaLetter } from './models/saLetter';
+import { SaCollections } from './models/saCollections';
 const apiData = require('./spelalfabeet.json')
+
+
 
 export default function App() {
 
-  const [alphabetData, setAlphabetData] = useState<SaCollection | undefined>(undefined)
+  const [alphabetsData, setAlphabetsData] = useState<SaCollections | undefined>(undefined)
   const [text, onChangeText] = useState<string | undefined>(undefined)
+  const [selectedLanguage, setSelectedLanguage] = useState<string|undefined>();
 
-  const isDarkMode = useColorScheme() === 'dark';
+  function fetchAlphabets() {
+    setAlphabetsData(apiData)
+  }
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  function getLanguages() {
+    let languages: string[] = [];
+    alphabetsData?.collections.forEach((collection: SaCollection) => {
+      languages.push(collection.language);
+    })
+    return languages;
+  }
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  function getLanguagesPickerItems(): Element[] {
+    let pickerItems: Element[] = [];
 
-  function fetchAlphabet() {
-    setAlphabetData(apiData);
+    getLanguages().forEach((langName: string) => {
+      pickerItems.push(<Picker.Item color='white' label={capitalizeFirstLetter(langName)} value={langName} />)
+    })
+
+    return pickerItems
+
   }
 
   useEffect(() => {
-    fetchAlphabet();
+    fetchAlphabets();
+
   })
+
+  function getLanguageIndex(langName: string): number {
+    let found: number = 0;
+    alphabetsData?.collections.forEach((collection, idx) => {
+      if(collection.language == langName)
+      {
+        found = idx;
+      }
+
+    })
+
+    return found;
+  }
+
+
 
   function getSpelledOut(ch: string): string | undefined {
     let found: string | undefined = undefined;
-    alphabetData?.letters.forEach((saLetter: SaLetter) => {
+    if(selectedLanguage === undefined)
+    {
+      return found;
+    }
+    alphabetsData?.collections[getLanguageIndex(selectedLanguage)].letters.forEach((saLetter: SaLetter) => {
       if (saLetter.character.toLowerCase() == ch.toLowerCase()) {
         found = saLetter.spelledOut;
       }
@@ -64,7 +96,6 @@ export default function App() {
 
   function translateIt(): string {
     let spelledOutCol: string[] = [];
-    console.log("Translating ======");
     if (text == null) {
       return "";
     }
@@ -86,8 +117,6 @@ export default function App() {
       else {
         curIdx += 1;
       }
-
-      console.log(`${curChar}: ${getSpelledOut(curChar)}`);
       let spelledOut = getSpelledOut(curChar);
       spelledOut == undefined ? spelledOutCol.push(curChar) : spelledOutCol.push(spelledOut);
     }
@@ -95,28 +124,34 @@ export default function App() {
     return spelledOutCol.join(" - ")
   }
 
-  function showTranslated() {
-    let translated = translateIt();
-    return translated ? <Text style={styles.centerIt}>{translated}</Text> : <></>
-  }
 
   return (
     <>
-      <SafeAreaView style={[styles.container, { flexDirection: 'column' }]}>
-        <View style={{ flex: 1}} >
-          <Text style={[styles.centerIt, styles.appTitle]}>Spelling alphabet</Text>
-          <Text style={[styles.centerIt, styles.appDesc]}>Proof of concept by K4CZP3R</Text>
+      <SafeAreaView style={[styles.container, { flexDirection: 'column', backgroundColor: 'black' }]}>
+        <View style={{ flex: 1 }} >
+          <Text style={[styles.centerIt, styles.appTitle, { color: 'white' }]}>Spelling alphabet</Text>
+          <Text style={[styles.centerIt, styles.appDesc, { color: 'white' }]}>Proof of concept by K4CZP3R</Text>
         </View>
-        <View style={{ flex: 3}}>
-          <Text style={[styles.centerIt, styles.info1]}>Enter text which will be translated:</Text>
-          <TextInput style={styles.input} onChangeText={onChangeText} value={text} placeholder="Tracking number or something else" />
+        <View style={{ flex: 2 }} >
+          <Picker
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) => {
+              setSelectedLanguage(itemValue)
+            }}>
 
-          <Text style={[styles.centerIt, styles.info2]}> {translateIt()}</Text>
+            {getLanguagesPickerItems()}
+
+          </Picker>
+        </View>
+        <View style={{ flex: 3 }}>
+          <Text style={[styles.centerIt, styles.info1, { color: 'white' }]}>Enter text which will be translated:</Text>
+          <TextInput placeholderTextColor='lightgray' style={[styles.input]} onChangeText={onChangeText} value={text} placeholder="Tracking number or something else" />
+
+          <Text style={[styles.centerIt, styles.info2, { color: 'white' }]}> {translateIt()}</Text>
         </View>
 
 
       </SafeAreaView>
-
     </>
   );
 };
@@ -147,6 +182,8 @@ const styles = StyleSheet.create({
     height: 40,
     margin: 12,
     borderWidth: 1,
+    borderColor: 'white',
+    color: 'white'
   }
 
 });

@@ -1,6 +1,119 @@
 {
     "collections": [
         {
+            "language": "dutch - vlaanderen",
+            "letters": [
+                {
+                    "character": "a",
+                    "spelledOut": "Arthur"
+                },
+                {
+                    "character": "b",
+                    "spelledOut": "Brussel"
+                },
+                {
+                    "character": "c",
+                    "spelledOut": "Carolina"
+                },
+                {
+                    "character": "d",
+                    "spelledOut": "Desiré"
+                },
+                {
+                    "character": "e",
+                    "spelledOut": "Emiel"
+                },
+                {
+                    "character": "f",
+                    "spelledOut": "Frederik"
+                },
+                {
+                    "character": "g",
+                    "spelledOut": "Gustaaf"
+                },
+                {
+                    "character": "h",
+                    "spelledOut": "Hendrik"
+                },
+                {
+                    "character": "i",
+                    "spelledOut": "Isidoor"
+                },
+                {
+                    "character": "j",
+                    "spelledOut": "Jozef"
+                },
+                {
+                    "character": "k",
+                    "spelledOut": "Kilogram"
+                },
+                {
+                    "character": "l",
+                    "spelledOut": "Leopold"
+                },
+                {
+                    "character": "m",
+                    "spelledOut": "Maria"
+                },
+                {
+                    "character": "n",
+                    "spelledOut": "Napoleon"
+                },
+                {
+                    "character": "o",
+                    "spelledOut": "Oscar"
+                },
+                {
+                    "character": "p",
+                    "spelledOut": "Piano"
+                },
+                {
+                    "character": "q",
+                    "spelledOut": "Quotiënt"
+                },
+                {
+                    "character": "r",
+                    "spelledOut": "Robert"
+                },
+                {
+                    "character": "s",
+                    "spelledOut": "Sofie"
+                },
+                {
+                    "character": "t",
+                    "spelledOut": "Telefoon"
+                },
+                {
+                    "character": "u",
+                    "spelledOut": "Ursula"
+                },
+                {
+                    "character": "v",
+                    "spelledOut": "Victor"
+                },
+                {
+                    "character": "w",
+                    "spelledOut": "Waterloo"
+                },
+                {
+                    "character": "x",
+                    "spelledOut": "Xavier"
+                },
+                {
+                    "character": "ij",
+                    "spelledOut": "Yvonne"
+                },
+                {
+                    "character": "y",
+                    "spelledOut": "Zola"
+                },
+                {
+                    "character": "z",
+                    "spelledOut": "Zaandam"
+                }
+            ]
+        },
+        {
             "language": "dutch",
             "letters": [
                 {
